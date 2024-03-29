@@ -19,30 +19,29 @@ function Dashboard() {
 
   return (
     <Stack
-      direction={{ xs: "column", md: "row" }}
+      direction="column"
+      style={{backgroundColor : "black"}}
       sx={{
         overflow: "hidden",
-        height: { xs: "auto", md: "92vh" },
+        minHeight: "calc(100vh - 64px)", // Adjusted height to accommodate navbar height (assuming navbar height is 64px)
       }}
     >
       {/* Sidebar */}
       <Box
         sx={{
-          height: { xs: "20vh", md: "90vh" },
-          width: { xs: "100%", md: "20%" },
-          borderRight: { xs: 0, md: "1px solid #3d3d3d" },
+          width: "100%",
           backgroundColor: "#000",
           color: "#fff",
           overflow: "auto",
-          px: { xs: 2, md: 0 },
-          py: { xs: 2, md: 0 },
+          px: 2,
+          py: 2,
         }}
       >
-        <Typography variant="h5" sx={{ mb: 2, px: 2 }}>
+        <Typography variant="h5" sx={{ mb: 2 }}>
           <span style={{ color: "white" }}>Hello </span>
           <span style={{ color: "red" }}>{username}!</span>
         </Typography>
-        <Stack spacing={1} sx={{ flexDirection: { xs: "row", md: "column" }, px: 2, overflow: "auto" }}>
+        <Stack spacing={1} sx={{ px: 2, overflow: "auto" }}>
           <Button
             onClick={() => handleCategoryClick("dashboard")}
             sx={{
@@ -80,7 +79,7 @@ function Dashboard() {
             Your Playlist
           </Button>
         </Stack>
-        <Typography variant="body2" sx={{ mt: 1.5, ml: 2 }}>
+        <Typography variant="body2" sx={{ mt: 1.5 }}>
           Welcome!
         </Typography>
       </Box>
@@ -88,9 +87,8 @@ function Dashboard() {
       {/* Main Content */}
       <Box
         sx={{
-          width: { xs: "100%", md: "80%" },
+          width: "100%",
           overflowY: "auto",
-          maxHeight: "90vh",
           backgroundColor: "#000",
           color: "#fff",
           px: 2,
