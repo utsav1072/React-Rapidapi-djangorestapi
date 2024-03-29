@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
 
     const loginUser = async (email, password) => {
-        const response = await fetch("http://127.0.0.1:8000/api/token/", {
+        const response = await fetch("https://utsav1072.pythonanywhere.com/api/token/", {
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const registerUser = async (email, username, password, password2) => {
-        const response = await fetch("http://127.0.0.1:8000/api/register/", {
+        const response = await fetch("https://utsav1072.pythonanywhere.com/api/register/", {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -120,7 +120,7 @@ export const AuthProvider = ({ children }) => {
         });
     };
     const updateProfile = async (full_name, bio, image) => {
-        const response = await fetch("http://127.0.0.1:8000/api/test/", {
+        const response = await fetch("https://utsav1072.pythonanywhere.com/api/test/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -162,7 +162,7 @@ export const AuthProvider = ({ children }) => {
         };
     
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/videos/${user_id}/`, {
+            const response = await fetch(`https://utsav1072.pythonanywhere.com/api/videos/${user_id}/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
