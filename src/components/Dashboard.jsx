@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import { jwtDecode } from "jwt-decode";
 import ProfilePage from './ProfilePage';
-import { Playlist, MyData } from './'
+import { Playlist, MyData } from './';
 
 function Dashboard() {
   const [selectedCategory, setSelectedCategory] = useState("dashboard");
@@ -12,6 +12,10 @@ function Dashboard() {
   const isExtraSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
   const token = localStorage.getItem("authTokens");
   const username = token ? jwtDecode(token).username : "";
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <Stack
@@ -29,7 +33,7 @@ function Dashboard() {
           borderRight: { xs: 0, md: "1px solid #3d3d3d" },
           backgroundColor: "#000",
           color: "#fff",
-          overflow : "auto",
+          overflow: "auto",
           px: { xs: 2, md: 0 },
           py: { xs: 2, md: 0 },
         }}
@@ -38,9 +42,9 @@ function Dashboard() {
           <span style={{ color: "white" }}>Hello </span>
           <span style={{ color: "red" }}>{username}!</span>
         </Typography>
-        <Stack  spacing={1} sx={{ flexDirection: {xs:"row" , md:"column"}, px: 2 , overflow : "auto"}}>
+        <Stack spacing={1} sx={{ flexDirection: { xs: "row", md: "column" }, px: 2, overflow: "auto" }}>
           <Button
-            onClick={() => setSelectedCategory("dashboard")}
+            onClick={() => handleCategoryClick("dashboard")}
             sx={{
               color: "white",
               bgcolor: selectedCategory === "dashboard" ? "red" : "transparent",
@@ -52,7 +56,7 @@ function Dashboard() {
             My Dashboard
           </Button>
           <Button
-            onClick={() => setSelectedCategory("updateProfile")}
+            onClick={() => handleCategoryClick("updateProfile")}
             sx={{
               color: "white",
               bgcolor: selectedCategory === "updateProfile" ? "red" : "transparent",
@@ -64,7 +68,7 @@ function Dashboard() {
             Update Profile
           </Button>
           <Button
-            onClick={() => setSelectedCategory("myPlaylist")}
+            onClick={() => handleCategoryClick("myPlaylist")}
             sx={{
               color: "white",
               bgcolor: selectedCategory === "myPlaylist" ? "red" : "transparent",
@@ -94,7 +98,7 @@ function Dashboard() {
       >
         {selectedCategory === "dashboard" && (
           <Typography variant="h4" fontWeight="bold" mb={2}>
-            My Dashboard <span style={{ color: "#FC1503" }}><MyData/></span>
+            My Dashboard <span style={{ color: "#FC1503" }}><MyData /></span>
           </Typography>
         )}
         {selectedCategory === "updateProfile" && <ProfilePage />}
