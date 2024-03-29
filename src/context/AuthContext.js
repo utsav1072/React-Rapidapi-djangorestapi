@@ -93,7 +93,7 @@ export const AuthProvider = ({ children }) => {
             console.log(response.status);
             console.log("there was a server issue");
             swal.fire({
-                title: "An Error Occured " + response.status,
+                title: "Password must contain atleast 8 characters" ,
                 icon: "error",
                 toast: true,
                 timer: 6000,

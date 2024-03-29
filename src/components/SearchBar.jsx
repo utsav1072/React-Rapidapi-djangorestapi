@@ -7,6 +7,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const isSmallDevice = useMediaQuery('(max-width:600px)');
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
