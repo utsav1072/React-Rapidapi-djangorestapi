@@ -18,7 +18,7 @@ const Feed = () => {
 
   console.log(videos)
   return (
-    <Stack direction={{ xs: "column", md: "row" }} sx={{ height: "92vh", overflow: "hidden" }}>
+    <Stack direction={{ xs: "column", md: "row" }} sx={{ height: "92vh", overflow: "hidden", background : "black"}}>
       {/* Sidebar */}
       <Box
         sx={{

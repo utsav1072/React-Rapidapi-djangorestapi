@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, useMediaQuery } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const isSmallDevice = useMediaQuery('(max-width:600px)');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +29,9 @@ const SearchBar = () => {
         color: 'white', // Set text color to white
         mr: { xs: 0, sm: 5 }, // Adjust margin for smaller devices
         mb: { xs: 2, sm: 0 }, // Adjust margin for smaller devices
-        width: { xs: "100%", sm: "auto" }, // Adjust width for smaller devices
+        width: { xs: "100%", sm: isSmallDevice ? "30%" : "auto" }, // Adjust width for smaller devices
+        display: 'flex',
+        alignItems: 'center'
       }}
     >
       <input
@@ -36,19 +39,9 @@ const SearchBar = () => {
         placeholder= "Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-       style =  {{backgroundColor: 'black', color : "red"}} 
-        sx={{
-          width: { xs: "calc(100% - 40px)", sm: "auto" }, // Adjust width for smaller devices
-          border: "none", // Remove border to make it cleaner
-          outline: "none", // Remove outline
-          fontSize: "inherit", // Inherit font size
-          px: 1, // Add some horizontal padding
-          backgroundColor: 'black', // Set background color to black
-          color: 'white', // Set text color to white
-          "::placeholder": { color: "red" } // Set placeholder color to red
-        }}
+        style={{ backgroundColor: 'black', color: "red", width: "100%", border: 'none', outline: 'none', padding: '10px' }}
       />
-      <IconButton type='submit' sx={{ p: '10px', color: 'red' }} aria-label='search'>
+      <IconButton type='submit' sx={{ color: 'red' }} aria-label='search'>
         <SearchIcon />
       </IconButton>
     </Box>
