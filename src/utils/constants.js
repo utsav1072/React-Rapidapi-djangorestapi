@@ -11,7 +11,11 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
-export const logo = 'https://i.ibb.co/RQKpM7r/output-onlinepngtools.png';
+export const logo = 'https://i.ibb.co/Cv4CTp9/output-onlinepngtools.png';
+export const f = "https://i.ibb.co/5G9WpQv/1.png";
+export const s = "https://i.ibb.co/6gkxNQQ/2.png";
+export const t = "https://i.ibb.co/hDp78N7/3.png";
+export const fo = "https://i.ibb.co/JKQYXGx/4.png";
 
 export const categories = [
   { name: 'New', icon: <HomeIcon />, },
